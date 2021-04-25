@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.sdacademy.projektplus.quiz.player.PlayerEntity;
 import pl.sdacademy.projektplus.quiz.player.PlayerRepository;
+import pl.sdacademy.projektplus.quiz.services.QuizDataService;
+
 import java.util.List;
 
 @Component
@@ -14,6 +16,9 @@ public class StartupRunner implements CommandLineRunner {
 
     @Autowired
     private PlayerRepository playerRepository;
+
+    @Autowired
+    private QuizDataService quizDataService;
 
     @Override
     public void run(String...args) throws Exception {
