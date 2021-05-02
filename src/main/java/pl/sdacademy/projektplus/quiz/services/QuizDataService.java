@@ -8,15 +8,17 @@ import pl.sdacademy.projektplus.quiz.category.CategoriesDto;
 import pl.sdacademy.projektplus.quiz.question.QuestionsDto;
 
 import java.net.URI;
+import java.util.List;
 
 @Log
 @Service
 public class QuizDataService {
 
-    public void getQuizCategories() {
+    public List<CategoriesDto.CategoryDto> getQuizCategories() {
         RestTemplate restTemplate = new RestTemplate();
         CategoriesDto result = restTemplate.getForObject("https://opentdb.com/api_category.php", CategoriesDto.class);
         log.info("Quiz categories: " + result.getCategories());
+        return result.getCategories();
     }
 
     public void getQuizQuestions() {
