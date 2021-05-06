@@ -36,7 +36,11 @@ public class FrontendController {
     public String postSelectForm(Model model, @ModelAttribute GameOptions gameOptions) {
         log.info("Form submitted with data: " + gameOptions);
         ongoingGameService.init(gameOptions);
-        return "redirect:game";
+        if(ongoingGameService.getQuestions().isEmpty()){
+            return "redirect:error";
+        } else {
+            return "redirect:game";
+        }
     }
 
     @GetMapping("/game")

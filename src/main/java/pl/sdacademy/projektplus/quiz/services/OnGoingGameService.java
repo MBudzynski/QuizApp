@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 import pl.sdacademy.projektplus.quiz.frontend.Difficulty;
 import pl.sdacademy.projektplus.quiz.frontend.GameOptions;
 import pl.sdacademy.projektplus.quiz.question.QuestionsDto;
@@ -15,12 +16,13 @@ import java.util.Optional;
 
 @Log
 @Service
+@SessionScope
 public class OnGoingGameService {
     private GameOptions gameOptions;
     private int currentQuestionIndex;
     @Getter
     private int points;
-
+    @Getter
     private List<QuestionsDto.QuestionDto> questions;
 
     @Autowired
